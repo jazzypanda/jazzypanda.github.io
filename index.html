@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>于是我们奋力向前</title>
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/ChineseMono-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-italic-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-bold.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="/" id="logo">于是我们奋力向前</a>
+  </h1>
+  
+    <h2 id="subtitle-wrap">
+      <a href="/" id="subtitle">So we beat on, boats against the current, borne back ceaselessly into the past.</a>
+    </h2>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main">
+  
+    <article id="post-隐含波动率与有效场论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/17/%E9%9A%90%E5%90%AB%E6%B3%A2%E5%8A%A8%E7%8E%87%E4%B8%8E%E6%9C%89%E6%95%88%E5%9C%BA%E8%AE%BA/" class="article-date">
+  <time class="dt-published" datetime="2025-02-17T15:59:00.000Z" itemprop="datePublished">2025-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/02/17/%E9%9A%90%E5%90%AB%E6%B3%A2%E5%8A%A8%E7%8E%87%E4%B8%8E%E6%9C%89%E6%95%88%E5%9C%BA%E8%AE%BA/">隐含波动率与有效场论</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>BSM 期权定价模型用几何布朗运动<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>GBM<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>刻画标的资产的价格变化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其噪声项 <span class="markdown-them-math-inline">$W$</span> 是维纳过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>事实上没有体现市场的长尾特性 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>看起来 BSM 只是一个理想模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<div class="markdown-them-math-block">$$dS = \mu S dt + \sigma S dW
+$$</div><p>在金融实践中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们往往直接将期权的价格代入 BSM<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反向求解出波动率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对不同的期限 <span class="markdown-them-math-inline">$T$</span> 和行权价 <span class="markdown-them-math-inline">$K$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们都可以求得一个波动率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>称之为隐含波动率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Implied Volatility, IV<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于市场上所有合约<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>隐含波动率构成一张曲面 <span class="markdown-them-math-inline">$\sigma(K, T)$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<div class="markdown-them-math-block">$$C = S_0 N(d_1) - K e^{-rT} N(d_2)
+$$</div><div class="markdown-them-math-block">$$d_1 = \frac{\ln \frac{S_0}{K} + \left( r + \frac{\sigma^2}{2} \right) T}{\sigma \sqrt{T}}
+$$</div><div class="markdown-them-math-block">$$d_2 = d_1 - \sigma \sqrt{T}
+$$</div><p>因为噪声的影响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将原始价格数据中反求的 IV 直接插值为曲面不是一个好主意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我们不妨先把来自不同合约的 <span class="markdown-them-math-inline">$(\sigma_i, K_i, T_i)$</span> 视作零散的数据点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从最大后验概率估计<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>MAP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的视角下理解这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>波动率曲面应该是某种意义上的平均或者说平滑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时满足一些约束条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>金融直觉告诉我们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>约束中理所应当要包括无套利条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我还希望曲面是光滑的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有了这些约束条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们就可以把数据点代进来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解一个优化问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后得到一张波动率曲面<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Volatility Surface<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它是一切期权交易者的生命<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*ds3lwPLEpm1cwg6atgfHNA.jpeg" alt="波动率曲面"></p>
+<p>现在我们思考一个本质问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>固定波动率的 BSM 显然无法捕捉市场的长尾特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>这个<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>硬算<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的波动率曲面来自 BSM<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却又不符合 BSM 的基本假设</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么它到底是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>它捕捉到了什么超越 BSM 的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>想想看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们从一个<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的模型中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再做一次<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后得到了某个看起来或许是某种平均的<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>可观测量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们希望依赖这个似是而非的可观测量洞察到<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>真实<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的市场现象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这可能吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>为了回答这些问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们把目光投向一些超越 BSM 的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 Merton<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>这位是 BSM 中的 M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还是他<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的扩散跳跃模型<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>既然维纳过程没法建模长尾<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那我们干脆加入一个随机的泊松跳跃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>接着<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以推导出一个修正后的伊藤公式<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到扩散跳跃模型下的微分方程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后得到定价公式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最妙的事情来了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>Merton 模型的定价可以看作若干 BSM 定价的加权和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span></strong></p>
+<p>理一理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Merton 跳跃扩散模型的表达能力确实比 BSM 强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但似乎并没有强很多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>长尾不是什么天堑</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们甚至可以简单地利用 BSM 的线性组合来建模市场的长尾特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>沿着这个思路提出问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>BSM 要加上哪些额外的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才能获得与 Merton 跳跃扩散模型同等的表达能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>当然就是加权和的权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>写到这里也许有读者已经看明白了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>事实上波动率曲面就提供了这些额外的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它把短时程的跳跃平均成长时程的扩散<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到了一个<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>有效波动率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Effective Volatility<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我似乎已经回答了波动率曲面是什么的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但还没有解释为什么这种<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错两次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的方法可行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>高能物理中早就出现过类似的事情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错两次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>有一个低能标<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>大尺度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要求得系统的某些性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们必须遍历所有的尺度求和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然而直接求和的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>致命的问题出现了——这个代表系统某些性质的物理量居然会发散<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>聪明或者说绝望的物理学家们又发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果我们不遍历所有的尺度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是在求和中截掉那些模型并没有覆盖到的尺度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时调整模型的某些参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终奇迹般地得到一个正确的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>简单地说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>低能标的模型并没有关于高能标细节的知识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是第一个<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>截断到一个特定的尺度更没有道理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是第二个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两个错误加起来却得到了正确的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>后来的物理学家用重整化群理论描述了这个惊人的现象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>物理学家们认识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>场论永远都是一种有效理论<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Effective Theory<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在一个具体的有效理论下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一方面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们永远无法知道高能标的细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无法对高能标下的现象做出任何预言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但另一方面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也是最激动人心的地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们并不是什么都不能做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>有效理论允许我们把高能标的细节——那些我们并不知晓的细节——平均到低能标的某些参数下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后做出当前能标下有效的预言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>回到 BSM 和 Merton 扩散跳跃模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>波动率曲面可以视作一组<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>被重整<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的参数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它反映了小尺度的扩散跳跃过程在大尺度上的平均作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有效理论的又一次胜利<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为之欢呼吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span></p>
+<p>不想写了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就这么结束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>感觉要说的点都提到了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>面对黑天鹅事件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你和你的模型一样可笑😅 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Merton R C. Option pricing when underlying stock returns are discontinuous[J]. Journal of financial economics, 1976, 3(1-2): 125-144. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Ito-Levy 公式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但 Merton 的原始论文中并没有这么做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他直接近似处理了泊松跳跃的效应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>有效理论是一个非常大的主题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>背后蕴含着深刻的物理和哲学思想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种思想帮助人类认识并理解任何层次化的复杂系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>举例而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>电动力学是量子电动力学的低能有效场论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几何光学是电动力学的低能有效场论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更进一步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>计算机图形学又是几何光学的大尺度有效理论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在图形学中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们通过微表面假设<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把光与环境的相互作用平均到 BRDF 上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后用 <code>roughness map</code> 和 <code>normal map</code> 等被重整的参数描述整个系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在这个例子里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>BRDF 就是有效模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>各种贴图是有效参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>光通量类似哈密顿量或是配分函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个主题很有意思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我打算专门写写<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-Quant/" rel="tag">Q-Quant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%91%E8%9E%8D/" rel="tag">金融</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-市场的终点" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/09/%E5%B8%82%E5%9C%BA%E7%9A%84%E7%BB%88%E7%82%B9/" class="article-date">
+  <time class="dt-published" datetime="2025-02-09T03:54:00.000Z" itemprop="datePublished">2025-02-09</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/02/09/%E5%B8%82%E5%9C%BA%E7%9A%84%E7%BB%88%E7%82%B9/">市场的终点</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>有一个思考了一段时间的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我没法三言两语把题干说明白<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以先提一些基本概念<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>理论上说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>市场竞争总会把价格推向平衡点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在一个信息充分传播<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>市场参与者充分理性的前提条件下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>市场应该是有效的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即当前资产的一切信息都已经体现在价格里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无论加入其他任何信息集<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都无法对未来价格做出有效的预测<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>金融实践上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>市场远不是有效的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>否则一切利用市场波动的套利策略都将不复存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>如果我们仿照平衡态统计物理的术语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把新信息出现到市场作出响应并达到有效<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>平衡点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>花费的时间称为弛豫时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>股票市场的弛豫时间至少在分钟级以上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我是说但是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对于任何市场参与者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只要通过投机行为获利<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>事实上都在把市场推向更有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>例如高频交易者<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>专门捕捉极小时间尺度下的市场失效并从中获利<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是在弛豫时间内获利<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每一个获利的高频交易者都在帮助市场缩小弛豫时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每个时间尺度下的策略容量都是有限的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>先是那匹从滑铁卢赶回伦敦的快马<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后是电报<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再后来是那些光纤直连华尔街的交易服务器<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>容量一点一点被吃掉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而市场也变得越来越有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>直到今天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们甚至可以宣布<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>股票市场几乎是弱式有效的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>技术分析的价值在一天天下降<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>囿于过去几十年人工智能技术的发展——主要是表示学习<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>representation learning<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>——计算机在过去并不能接收并理解市场上的全部信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>场内交易数据是完全结构化的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此计算机首先开发了基于场内数据的策略<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>随着充分竞争<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终这类策略的容量完全被消耗殆尽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>市场在有金融意义的时间尺度下几乎进入弱式有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>然而<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人工智能技术在发展<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>transformer 出现后以及自监督学习出现后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>表示学习几乎已经发展到了终点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>今天的计算机可以用一套固化的流程理解几乎是任何模态的数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>沿着这个视角<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们先考虑这样的简单情形<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果计算机可以理解非结构化的文本数据<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那就意味着任何政策<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>财报<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>研报<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>新闻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>舆情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>即所有的基本面和消息面信息都能被计算机理解<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>作为某个交易模型的输入<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很快这些策略的容量也会被计算机抢占一空<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此时市场进入半强式有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>再进一步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果最终计算机可以直接接收并理解来自工厂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>物流<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>仓库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>销售的所有信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>市场将进入强式有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>想想看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那是多么美妙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>多么无聊的图景<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>市场变得完全有效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一切资产的定价都无比正确<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整个市场不再需要人的参与<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们生活在一个由计算机自动定价的世界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>早就有人说过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在一个充分有效的市场下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>任何主动买卖策略都没有意义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>盈利的数学期望都有基线保持一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因此买指数和 ETF 就足够了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>一个最终不需要人参与的完美市场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>难道这就是资本主义的结局吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%91%E8%9E%8D/" rel="tag">金融</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-始于亨利·詹姆斯的现代恐怖故事" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/01/02/%E5%A7%8B%E4%BA%8E%E4%BA%A8%E5%88%A9%C2%B7%E8%A9%B9%E5%A7%86%E6%96%AF%E7%9A%84%E7%8E%B0%E4%BB%A3%E6%81%90%E6%80%96%E6%95%85%E4%BA%8B/" class="article-date">
+  <time class="dt-published" datetime="2025-01-02T06:35:00.000Z" itemprop="datePublished">2025-01-02</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/01/02/%E5%A7%8B%E4%BA%8E%E4%BA%A8%E5%88%A9%C2%B7%E8%A9%B9%E5%A7%86%E6%96%AF%E7%9A%84%E7%8E%B0%E4%BB%A3%E6%81%90%E6%80%96%E6%95%85%E4%BA%8B/">始于亨利·詹姆斯的现代恐怖故事</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>伍尔夫的爸爸曾经当过亨利·詹姆斯的编辑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>伍尔夫一家人经常在客厅里听詹姆斯说那些华丽又晦涩的长句子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>关系非常好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>今天看到了一段伍尔夫写的评论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>关于亨利·詹姆斯写的恐怖故事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<blockquote>
+<p>亨利·詹姆斯笔下的鬼魂与古老的暴力鬼魂——血迹斑斑的船长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>白马<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>阴暗小巷和狂风中的无头女士——毫无共同之处<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它们起源于我们自身<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>每当重要的事物超出我们的表达能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每当普通的事物被奇怪的事物包围<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们就会出现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那些残留的令人费解的事物<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那些挥之不去的令人恐惧的事物——这些都是他所捕捉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>体现的情感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>并使之成为一种安慰和陪伴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+</blockquote>
+<p>原来现代恐怖故事是从詹姆斯开始的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>布莱克伍德<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>洛夫克拉夫特<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>以及其他一切展现<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>不可名状的恐怖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的尝试<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都源自詹姆斯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-笛安和福克纳" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/12/20/%E7%AC%9B%E5%AE%89%E5%92%8C%E7%A6%8F%E5%85%8B%E7%BA%B3/" class="article-date">
+  <time class="dt-published" datetime="2024-12-20T12:11:07.000Z" itemprop="datePublished">2024-12-20</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/12/20/%E7%AC%9B%E5%AE%89%E5%92%8C%E7%A6%8F%E5%85%8B%E7%BA%B3/">笛安和福克纳</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>昨天和家属聊天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>猛然想起来高中读过笛安的书<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>应该是<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>告别天堂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当时就爱死了这种时间和人物交错的多线叙事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那本<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>告别天堂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>应该是班上一位女同学的书<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我那时候很喜欢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>当然我是说那本书<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我大概读了三四遍<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后把书还回去了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>此后过了很长时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>十年甚至更久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我再也没有读过笛安的书<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>虽然我后来知道她慢慢出版了龙城三部曲<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>草草浏览一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却总觉得找不到当年的兴致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>今年我读了福克纳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>我弥留之际<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>和<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>喧哗与骚动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我隐隐觉得似乎在哪里见过这种叙事技巧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>文章的结构也有种难言的熟悉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>像是一个素未谋面的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你第一眼看到他的脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>心里立刻涌起一个念头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>潜意识告诉你他是你的老朋友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你此前已经在千万个场合接触过他的一切<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只是你自己都没意识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>好吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许福克纳发明的技术潜移默化影响了每一本后世的小说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或许是我读过的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或许我没读过——我这样解释这种奇妙的熟悉感<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>早上坐地铁回创新港<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一路上找来笛安的访谈读了读<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>原来如此<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>谜底揭晓<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>笛安的爸爸就是作家<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而他最喜欢的作家是福克纳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至写过一本像<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>我弥留之际<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>致敬的作品<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>无风之树<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>高中时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>笛安受父亲的影响读了很多福克纳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>照这么说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>她第一部长篇小说有福克纳的影子也就再正常不过了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>细想一下福克纳式的技术<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把故事拆成属于不同时间与角色碎片倒不是最难的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>难的是每一个碎片要有自己的声音——福克纳毫无疑问做到了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而笛安大概做得不够好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>告别天堂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>的四个叙事者其实只有两种声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%96%87%E5%AD%A6/" rel="tag">文学</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-夜雾" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/12/18/%E5%A4%9C%E9%9B%BE/" class="article-date">
+  <time class="dt-published" datetime="2024-12-18T14:46:00.000Z" itemprop="datePublished">2024-12-18</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/12/18/%E5%A4%9C%E9%9B%BE/">夜雾</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>我本来已经忘了去年那次古怪的经历——我以为只是一场梦——直到我刚刚接到一通微信电话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一只发腮的金渐层出现在屏幕上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>模样憨态可掬<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我知道这是朋友养的猫<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>名字叫<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>蘸饺<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几年来他一直用这只猫当头像<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我按下接听<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没等我开口<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>电话里窜出一连串急切甚至带点神经质的声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可我印象中朋友一直是一个情绪稳定的人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>我看到了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>现在我又看到了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那个收费站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你还记得吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我知道你还记得<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你还记得对吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>什么收费……<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<p>我刚说到一半<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>发觉自己浑身寒毛都立起来了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我可以确定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有什么不寻常的事情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此刻存在于我潜意识里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我尚未意识到它到底是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>朋友早在半年前就毕业前往南方工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前几天我从朋友圈看到他在北大湖滑雪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>应该是休年假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>吉林哪会有什么我认识的收费站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我甚至都没去过吉林——除非<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>除非他不在吉林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在别的什么地方……等等<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>天啊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还有一种可能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这怎么可能<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他怎么会知道那座收费站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我不知道怎么用语言描述那个地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我心里突然冒出一个奇怪的念头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>别的地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>是那个地方的话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他可以既在吉林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又在那个地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>请诸位原谅我的语无伦次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可刚想到这里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我就被自己的念头吓得浑身发抖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再也组织不出符合逻辑的句子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我一下子想起来了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高速公路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>红光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那朦胧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>妖冶<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>诡异的红光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还有那座收费站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>鳌山雪场离创新港不算远<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>200 公里上下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>天气好的时候走连霍高速只要不到三个小时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这段经历发生在我从鳌山返回学校的路上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那是元旦假期结束不久的某个日子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>刚过中午<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>天上就飘起了雪花<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>到了下午<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>已经变成了鹅毛大雪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>雪花纷纷扬扬地落下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在雪道上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在雪道外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>目力所及的一切表面都铺上了一层糖霜般的雪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>连平日素来鲜艳的红色防护网都几乎成了莹白色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>松软的雪越积越厚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到我发觉板刃无法再利落地切开雪面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只好改用搓雪——我们一行人总算滑到了期待已久的粉雪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>下午五点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>日场结束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>按原计划该返程了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>朋友意犹未尽<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>说看样子雪会连着下一天一夜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不如多住一天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还能再滑一整天粉雪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>可谓妙极<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我表示绝非刻意扫兴<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但次日要开组会<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>今天实在是得赶回去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>朋友耸耸肩<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>露出无奈的表情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>点点头算是回应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从雪服内袋摸出手机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>飞快地回了几条消息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我们用气泵吹干雪板<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>收拾好装备<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>装上车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>打火启动<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>缴停车费离开雪场<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我猜大约是六点半吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>彼时夜幕刚刚降临<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从车窗眺望<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>远处的地平线还透着摄影爱好者们称为<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>蓝调时刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的那种蓝紫色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我担心高速封路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一直盯着雪友群<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>万幸群里一位大哥说高速一切正常<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>眉太线的路况也尚可<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>挂上防滑链小心行驶便是<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>盘山公路上弯道一个接着一个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>车灯的指向转了又转<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>像是一个因为没有目标而漫不经心的探照灯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>雪似乎比下午更大了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>道路两侧的马尾松和桦树掩在一片暮色里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>偶尔被车灯照亮一部分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>已然是雪满枝头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>朋友开始后悔没有等到后天中午再返程——天气预报说那时会放晴——下山的时候没准能看到雾凇呢<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我也开始后悔<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>组会可以请假<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>雾凇可不是次次都有<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>刚上高速就遭遇了大雾<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>能见度异常糟糕<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不像晨雾中依稀可以摸索前行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更像结结实实撞上一堵惨白色的墙<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>朋友打开双闪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>放慢车速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>窗外浓稠到近乎固体的雾气把转向灯的光线散射开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>闪烁着一团橘黄色的光晕<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>车里放着陶喆的<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>普通朋友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>朋友最爱 R&amp;B<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>放了一路的陶喆和方大同<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>对了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还有单依纯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><em>我感激你对我这样的坦白<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我给你的爱暂时收不回来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>途经一条隧道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>广播里毫无感情的女声拍打在隧道内壁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反射<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>叠加<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>隔着关闭的车窗还几乎是隆隆作响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><em>前方隧道能见度低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请保持车距<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>减速慢行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前方隧道能见度低<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>请……</em></p>
+<p>这隧道很长<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>长到广播重复四五次才开出去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>一车乘客逐渐开始犯困<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>大约在出了隧道的某个时候沉沉睡去——直到被朋友磕磕绊绊的声音叫醒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>你们……有没有发现……我们已经一个小时没拐过弯了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>连霍高速有这么直的一段吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<p>我们一边笑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一边说肯定是雾天影响了朋友的判断<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其实有小幅度的转弯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只是他没察觉到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我逐渐清醒过来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把注意力放在路面上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>陪着朋友开了一段<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>心理上感觉过了有一个小时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>窗外仍是一片让人心烦的浓雾<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>即使是这么慢的车速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>照理说应该也已经快到学校了吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>一看时间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才过去五分钟<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我逐渐开始注意到事情有点不对劲<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>后来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不知道过了多久——要我说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许有四五个小时——我们就这样在黑夜的浓雾里沿着高速路笔直前行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>路上再也没见过一辆车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尾灯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>双闪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>什么都没看到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我没有特别留意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但似乎连交通指示牌都没出现过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>倘若透过这浓雾从上方鸟瞰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们的汽车是一个移动的橘黄色光点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>孤独地闪烁着<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>宛如一只落单的萤火虫<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>人和昆虫一样可以通过气味传递情绪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>比如现在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>车内就充满了不安的气味<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这气味让我难以呼吸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>歌单早已放完了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>车里变得一片寂静<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我是说除了发动机运转的声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>车轮摩擦地面的声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>车身穿透浓雾的声音<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还有偶尔出现的深呼吸声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>终于<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前方不再是被车灯染成白茫茫一团的厚重雾气<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>远处似乎出现了一抹若隐若现的红光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一车人开始兴奋起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这说明正前方不再是一片浮在路面上的虚无<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是出现了什么有实感的东西——大货车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>还是什么建筑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>哪怕是个隧道都行——什么都比什么都没有更好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>车继续向前开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那东西缓缓露出轮廓<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是一座横亘在道路中央的收费站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>顶部有三个字的地名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>亮着红光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这大雾天难以辨认<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不过总之应该是没事了——不对<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>本来就没出什么事——应该是大雾破坏了大家对时间和空间的感受<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>三字地名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>已经到阿房宫了吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我在想象回宿舍洗个热水澡赶紧上床睡觉——我听见有人倒吸了一口冷气<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这声音把我从遐想拽回现实<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我后知后觉地意识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>小说里写的桥段原来是真的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>人在极端恐惧的时候根本无法尖叫<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>只能深吸一口气<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后陷入坐以待毙的凝滞<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>朋友一脚急刹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>路面有一层积雪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>ABS 嗒嗒作响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>汽车停在收费站脚下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>周遭地面被头顶的红光染成一片鬼魅般的猩红<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这座收费站像是突然一瞬间变得清楚起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它有八条车道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>都是抬杆允许通过的状态<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>每条车道的职员室都亮着暗红的灯光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>空无一人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>要说暗红色的照明已经足够反常与不详<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一抬头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我被吓到几近失声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我明白为什么有人倒吸冷气了——那三个字究竟是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>后来我认为这是一场梦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>很大程度上是因为清醒时候的意识状态难以描述我看到那三个字时候的心理反应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那一刻<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我确切地知道那三个字是某个地名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我也知道那不是能从字典里查到的汉字<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我还知道这绝不是西安附近什么地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至不是离西安很远的什么地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我知道空间<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>距离<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>位置等等概念在这个收费站通向的地方前失去了意义<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这座收费站以一种毛骨悚然的方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无可辩驳地展示着<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我过去奉若神明的信条都是错的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>语言不是意识的边界<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更不是世界的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有些东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它们藏在意识活动与语言的间隙里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>远比我——甚至比我掌握的知识——更古老<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>更强大<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它们确实存在<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我可以见证<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我可以感受<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我无法描述<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>该死<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我就是知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我现在说不出来那种<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>知道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的感觉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就当我在做梦吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>车灯没法照亮收费站后的道路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那里是一片被浓雾包围的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>深邃的黑暗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我逼迫自己收回目光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不要抬头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我攥起拳头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又放开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我注意到我的手心在冒汗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>脑子里只剩下一个念头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>赶紧调头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>越远越好<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>千万不要开进去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>朋友切到远光灯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还是看不清路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>于是一只手搭着方向盘<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>转过身去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和后排的乘客商量怎么办<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>大家的看法和我一致<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>立刻调头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>朋友说这可是在高速公路上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>逆行一次扣 12 分<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>罚款 200<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>吊销驾照<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>可我当时害怕得脚趾都抓紧了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>身体战栗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>脊柱仿佛被什么东西用梳子一遍一遍地刷<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>还能怎么办<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>我是说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在经历过这些怪事以后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还能怎么办<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>调头吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>开慢点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果遇到对向来车——我是说那样更好——必须要停下来问问究竟是怎么回事<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这一切到底都怎么了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>朋友沉思良久<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>摇摇头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>接着拿起手机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从头开始播放同一个歌单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这歌单第一首歌又是陶喆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>飞机场的 10<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>30<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>离开鳌山的时候也在放这个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所以我知道是同一个歌单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在这种时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这个地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他居然还记得放歌<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>朋友松开手刹<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>挂挡<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>调头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前方的夜雾仍和来时一样厚重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一样深邃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一样暗示着虚无<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一样让人喘不过气<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我想保持清醒<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但我又睡着了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我醒了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为听到了熟悉的前奏<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>弗拉门戈吉他独特的音色<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>跟着两下打板<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>紧接着陶喆就开始唱了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><em>等待<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我随时随地在等待<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>做你感情上的依赖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></em></p>
+<p>又是<span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>普通朋友<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>前方多了几盏汽车尾灯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>离我们很近<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>尾灯的 LED 灯珠清晰可辨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>红色的尾灯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>红色——我突然怔住<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我连忙看向同学的脸<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他紧紧盯着前方的道路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>眼神中透着疲惫<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也许还有别的情绪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但主要是疲惫<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我开口想问<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>想想又觉得可笑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不过是一场怪梦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我在发什么神经<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>穿过一个长长的隧道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那隧道毫无感情的广播声令人厌烦<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>浓雾好像散了一些<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后来的事情很简单<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前方有一辆灰色的奥迪 Q5<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>挂着粤 B 牌照<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>不近不远<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们跟着它一直开<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>上匝道<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>过阿房宫收费站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>下高速<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那辆 Q5 一直开到创新港<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从 B 区的入口进了地库<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我们挨着他们停了车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他们一车四个人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两男两女<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>聊起来得知他们是米兰的本科生<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也被这场浓雾困在高速上慢吞吞爬了一路<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个女生抱怨明天还要早八<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两个男生不以为然地打趣她<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>她回敬<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>另一个女生捂嘴不语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>嬉笑声就这样回荡在夜晚的地库里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>这个晚上本应就这么结束了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>至少过去一年里我以为结局就是这样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我逐渐忘记了这段在车上晕晕乎乎睡觉和做梦的经历<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>直到——</p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>什么收费……你是说那天晚上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>朋友的面孔一下子浮现在我脑海里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我这才读懂那天晚上他眼神里流露的情绪——我是说除了疲惫——那是狂热<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>雪疯子追逐粉雪大山般的狂热<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我知道朋友不会让我解释<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他也不会认为我疯了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>因为电话里最后传来的声音听起来已经疯了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>是的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>哈哈哈哈哈<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是啊<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>又是那座收费站<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这次我要进去看看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>工作人员说这个地名念……<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>喂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>哪来的工作人员<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>你在哪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>什么地名<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>喂<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<p>电话已经挂断了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>屏幕上只剩下那只金渐层<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还有一个通话中断的图标<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>发出幽幽的红光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%99%E4%BD%9C/" rel="tag">写作</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-全频带阻塞干扰：一个堪萨斯州的普通清晨" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/09/16/%E5%85%A8%E9%A2%91%E5%B8%A6%E9%98%BB%E5%A1%9E%E5%B9%B2%E6%89%B0%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%A0%AA%E8%90%A8%E6%96%AF%E5%B7%9E%E7%9A%84%E6%99%AE%E9%80%9A%E6%B8%85%E6%99%A8/" class="article-date">
+  <time class="dt-published" datetime="2024-09-16T13:05:00.000Z" itemprop="datePublished">2024-09-16</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/09/16/%E5%85%A8%E9%A2%91%E5%B8%A6%E9%98%BB%E5%A1%9E%E5%B9%B2%E6%89%B0%EF%BC%9A%E4%B8%80%E4%B8%AA%E5%A0%AA%E8%90%A8%E6%96%AF%E5%B7%9E%E7%9A%84%E6%99%AE%E9%80%9A%E6%B8%85%E6%99%A8/">全频带阻塞干扰：一个堪萨斯州的普通清晨</a>
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p><span class="bd-box"><h-char class="bd bd-end"><h-inner>《</h-inner></h-char></span>全频带阻塞干扰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>》</h-inner></h-char></span>设定下中美反转的版本<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在知乎看到很多知友写了这个主题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我个人非常喜欢原著里结尾那一段帕克将军的演说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我也浅浅糊弄一下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr>
+<p>天刚蒙蒙亮<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚高频天线还在漫无目地变换着指向<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它在无法连接到任何卫星时就是这副鬼样子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一边徒劳地跳来跳去一边发出让人恼火的吱吱声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>杨军长从通信参谋布满血丝的眼睛和他越来越频繁的小声咕哝中意识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>集团军已经和联指中心失联超过 48 小时了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>不光是联指中心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>任何上级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>下级<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>友军突然在两天前的某一个时间点消失了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在北美大陆上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仿佛所有的卫星<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>无人机<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>机器人<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>战区数据中心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>无人战场情报节点都消失了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>从短波到微波再到近红外<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所有信道统统失效<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至连激光链路都无法工作<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>通信参谋回想起他在国防科大的学员生涯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>军校从未教过如何应对这种情况——作为后话<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这次战役后来被收录进几乎所有主流国家的军事史教科书中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后世的年轻学员们对此谙熟于心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>堪萨斯州的大平原上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>地平线笔直而清晰<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这本应是一个宁静而柔和的清晨<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>像几个世纪以来这片旷野的每一个清晨一样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>借着熹微的晨光<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从望远镜里看去<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一片青灰色的影子裹在滚滚烟尘中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>正慢吞吞露出地平线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>杨军长瞪大眼睛<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>凑近望远镜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仿佛这样就能看得更清楚<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>我操你妈的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>美国佬怎么可能还有装甲部队<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<p>在钢铁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>火焰与鲜血面前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>高级军官的语言修养是最不应该出现在战场的东西<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>联指中心那个挂着天军臂章的情报参谋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>姓林<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>杨军长第一次看到他干干净净戴着眼镜的脸就不喜欢他<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再想起他在地球另一边吹着空调敲键盘的样子就更恼火了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>他半个星期前刚刚给参谋长传输了一份战果评估与战场态势报告<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>听听简报会上他是怎么说的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>情报无可置疑地表明<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>北美战役开始的一周内<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>所有的艾布拉姆斯和布雷德利已被我军摧毁殆尽……<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>无可置疑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>什么狗屁<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>杨军长讨厌林参谋那副眼镜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>谁教他在简报会上这么说话的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>是天军的林中将吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>晨雾淡了一些<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>地平线上的幽灵们露出了些微的轮廓<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>集群中作为头雁的那辆车<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它顶着一个滑稽的炮塔<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和肥大的车身十分不成比例<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>杨军长隐约觉得自己似乎在哪见过这个型号<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在现实中亲眼见过<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>他猛然想起来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那几乎是三十年前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他还是学员时<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>军校组织参观军事博物馆<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他在北京亲眼见到了这件展品<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>林参谋是对的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它的确不是艾布拉姆斯<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>杨军长放下望远镜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把目光投向同样眉头紧锁的政委<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>政委轻轻点了点头<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>轻得像一声叹息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>似乎在思考着什么或是下定某种决心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一段沉默后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>政委深吸一口气<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>整理好衣领和身上的装具<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>立正站定<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>向军长敬礼<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>后者立正回礼<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>没有作声<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个眼神<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>一个微表情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>多年来两位主官合作无间形成了足够的默契<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>此刻无需过多言语<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>两人身后<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>前指的参谋们似乎也意识到了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有一种沉重的东西迅速在他们身边蔓延开来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或许是对整个集团军战友们的责任<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>或许是军人的荣誉<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>亦或是什么难以言说的情绪<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>空气如此安静<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>好像连电源车和三坐标雷达的嗡嗡声都消失了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在堪萨斯州一望无际的原野上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这个小小的前线指挥部仿佛随着愈发折磨人的寂静越缩越小<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>变成了一个没有形状没有质量的点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><strong><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>同志们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></strong></p>
+<p>政委的声音响了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>语速不快<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也听不出任何符合政工干部刻板印象的激情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>仿佛初春时节静静流淌的密西西比河——集团军不久前刚在混乱却迫在眉睫的大撤退中渡过它<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>解放军并非一支生来就只靠电脑和机器人才能打仗的军队<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>一个世纪前<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们曾和面前的敌人交过手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在长津湖<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>在清川江<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>在铁原<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>那时我们没有卫星<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>没有数据中心<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更没有规模庞大的无人系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>但是正如在军史陈列馆中看到的那样<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这支军队的先辈们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>用自己的双腿与双手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>、</h-inner></h-char></span>眼睛与头脑——甚至是牙齿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>与敌人争夺每一寸战线<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从不活着放弃任何一个阵地<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<p>政委顿了顿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>转身注视着身后越来越近的烟尘与青灰色的影子<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>它们更清晰了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>甚至依稀能看见打头阵那辆 M4 谢尔曼坦克上悬挂着的旗帜<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>南军的南方十字旗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>政委回过身来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>缓缓握拳<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>举起右手<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span></p>
+<p><span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>同志们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>让美国佬明白<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解放军绝不是一支由工程师组成的军队<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>今天<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们坚守在堪萨斯州的阵地上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>在这片安德森县旁不知名的土地上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>也许我们会永远留在这儿<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但很快我们也会站在军史陈列馆的墙上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>和那些曾在涟川与铁原战斗过的先辈们一起……<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span></p>
+<hr>
+<p>写不动了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>感觉把握不太准政工干部说话的方式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>毕竟自己高度不够<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>后面再慢慢憋<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E5%86%99%E4%BD%9C/" rel="tag">写作</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 居然熊猫<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/jquery-1.4.3.min.js"></script>
+
+<script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="/mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+  </div>
+</body>
+</html>

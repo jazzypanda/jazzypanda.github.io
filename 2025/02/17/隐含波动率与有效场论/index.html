@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>隐含波动率与有效场论 | 于是我们奋力向前</title>
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/ChineseMono-normal-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-italic-normal.min.css">
+  <link rel="stylesheet" href="/css/fonts/Chinese-normal-bold.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <meta name="description" content="BSM 期权定价模型用几何布朗运动（GBM）刻画标的资产的价格变化，其噪声项 $W$ 是维纳过程，事实上没有体现市场的长尾特性 [1]，看起来 BSM 只是一个理想模型。
+$$dS = \mu S dt + \sigma S dW
+$$在金融实践中，我们往往直接将期权的价格代入 BSM，反向求解出波">
+  
+  
+  
+    <link rel="shortcut icon" href="/images/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox-1.3.4.css">
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <div id="nav-outer">
+  <nav id="main-nav" class="outer">
+    <a id="main-nav-toggle" class="nav-icon"></a>
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+    <div class="main-nav-space-between"></div>
+    
+  </nav>
+</div>
+<div id="header-title">
+  <h1 id="logo-wrap">
+    <a href="/" id="logo">于是我们奋力向前</a>
+  </h1>
+  
+    <h2 id="subtitle-wrap">
+      <a href="/" id="subtitle">So we beat on, boats against the current, borne back ceaselessly into the past.</a>
+    </h2>
+  
+</div>
+
+      <div id="content" class="outer">
+        <section id="main"><article id="post-隐含波动率与有效场论" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/02/17/%E9%9A%90%E5%90%AB%E6%B3%A2%E5%8A%A8%E7%8E%87%E4%B8%8E%E6%9C%89%E6%95%88%E5%9C%BA%E8%AE%BA/" class="article-date">
+  <time class="dt-published" datetime="2025-02-17T15:59:00.000Z" itemprop="datePublished">2025-02-17</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      隐含波动率与有效场论
+    </h1>
+  
+
+      </header>
+    
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>BSM 期权定价模型用几何布朗运动<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>GBM<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>刻画标的资产的价格变化<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>其噪声项 <span class="markdown-them-math-inline">$W$</span> 是维纳过程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>事实上没有体现市场的长尾特性 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>看起来 BSM 只是一个理想模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<div class="markdown-them-math-block">$$dS = \mu S dt + \sigma S dW
+$$</div><p>在金融实践中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们往往直接将期权的价格代入 BSM<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>反向求解出波动率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对不同的期限 <span class="markdown-them-math-inline">$T$</span> 和行权价 <span class="markdown-them-math-inline">$K$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们都可以求得一个波动率<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>称之为隐含波动率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Implied Volatility, IV<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>对于市场上所有合约<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>隐含波动率构成一张曲面 <span class="markdown-them-math-inline">$\sigma(K, T)$</span><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<div class="markdown-them-math-block">$$C = S_0 N(d_1) - K e^{-rT} N(d_2)
+$$</div><div class="markdown-them-math-block">$$d_1 = \frac{\ln \frac{S_0}{K} + \left( r + \frac{\sigma^2}{2} \right) T}{\sigma \sqrt{T}}
+$$</div><div class="markdown-them-math-block">$$d_2 = d_1 - \sigma \sqrt{T}
+$$</div><p>因为噪声的影响<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>将原始价格数据中反求的 IV 直接插值为曲面不是一个好主意<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>我们不妨先把来自不同合约的 <span class="markdown-them-math-inline">$(\sigma_i, K_i, T_i)$</span> 视作零散的数据点<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>从最大后验概率估计<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>MAP<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的视角下理解这个问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>波动率曲面应该是某种意义上的平均或者说平滑<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时满足一些约束条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>金融直觉告诉我们<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>约束中理所应当要包括无套利条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>其次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我还希望曲面是光滑的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>有了这些约束条件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们就可以把数据点代进来<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>解一个优化问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后得到一张波动率曲面<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Volatility Surface<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它是一切期权交易者的生命<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p><img src="https://miro.medium.com/v2/resize:fit:786/format:webp/1*ds3lwPLEpm1cwg6atgfHNA.jpeg" alt="波动率曲面"></p>
+<p>现在我们思考一个本质问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>固定波动率的 BSM 显然无法捕捉市场的长尾特性<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>这个<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>硬算<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的波动率曲面来自 BSM<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>却又不符合 BSM 的基本假设</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那么它到底是什么<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>它捕捉到了什么超越 BSM 的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>想想看<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们从一个<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的模型中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>再做一次<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的处理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后得到了某个看起来或许是某种平均的<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>可观测量<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们希望依赖这个似是而非的可观测量洞察到<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>真实<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的市场现象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这可能吗<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span></p>
+<p>为了回答这些问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们把目光投向一些超越 BSM 的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>例如 Merton<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>这位是 BSM 中的 M<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>是的<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>还是他<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的扩散跳跃模型<sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>既然维纳过程没法建模长尾<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>那我们干脆加入一个随机的泊松跳跃<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>接着<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们可以推导出一个修正后的伊藤公式<sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到扩散跳跃模型下的微分方程<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最后得到定价公式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>最妙的事情来了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>Merton 模型的定价可以看作若干 BSM 定价的加权和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span></strong></p>
+<p>理一理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>Merton 跳跃扩散模型的表达能力确实比 BSM 强<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但似乎并没有强很多<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>长尾不是什么天堑</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们甚至可以简单地利用 BSM 的线性组合来建模市场的长尾特征<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>沿着这个思路提出问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>BSM 要加上哪些额外的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>才能获得与 Merton 跳跃扩散模型同等的表达能力<span class="bd-box"><h-char class="bd bd-beg"><h-inner>？</h-inner></h-char></span>当然就是加权和的权重<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>写到这里也许有读者已经看明白了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>事实上波动率曲面就提供了这些额外的信息<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它把短时程的跳跃平均成长时程的扩散<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>得到了一个<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>有效波动率<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Effective Volatility<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>我似乎已经回答了波动率曲面是什么的问题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但还没有解释为什么这种<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错两次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的方法可行<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>高能物理中早就出现过类似的事情<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也就是<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错两次<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>：</h-inner></h-char></span>有一个低能标<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>大尺度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span>的模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>要求得系统的某些性质<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们必须遍历所有的尺度求和<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然而直接求和的时候<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>致命的问题出现了——这个代表系统某些性质的物理量居然会发散<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>聪明或者说绝望的物理学家们又发现<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>如果我们不遍历所有的尺度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>而是在求和中截掉那些模型并没有覆盖到的尺度<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>同时调整模型的某些参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>最终奇迹般地得到一个正确的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>简单地说<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>低能标的模型并没有关于高能标细节的知识<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是第一个<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>截断到一个特定的尺度更没有道理<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这是第二个<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>错误<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>两个错误加起来却得到了正确的结果<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>后来的物理学家用重整化群理论描述了这个惊人的现象<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>物理学家们认识到<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>场论永远都是一种有效理论<span class="bd-box"><h-char class="bd bd-end"><h-inner>（</h-inner></h-char></span>Effective Theory<span class="bd-box"><h-char class="bd bd-beg"><h-inner>）</h-inner></h-char></span><sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup><span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在一个具体的有效理论下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>一方面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们永远无法知道高能标的细节<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>无法对高能标下的现象做出任何预言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但另一方面<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>也是最激动人心的地方<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们并不是什么都不能做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span>有效理论允许我们把高能标的细节——那些我们并不知晓的细节——平均到低能标的某些参数下<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后做出当前能标下有效的预言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<p>回到 BSM 和 Merton 扩散跳跃模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span><strong>波动率曲面可以视作一组<span class="bd-box"><h-char class="bd bd-end"><h-inner>“</h-inner></h-char></span>被重整<span class="bd-box"><h-char class="bd bd-beg"><h-inner>”</h-inner></h-char></span>的参数</strong><span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>它反映了小尺度的扩散跳跃过程在大尺度上的平均作用<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>有效理论的又一次胜利<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>为之欢呼吧<span class="bd-box"><h-char class="bd bd-beg"><h-inner>！</h-inner></h-char></span></p>
+<p>不想写了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>就这么结束<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>感觉要说的点都提到了<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span></p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>面对黑天鹅事件<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>你和你的模型一样可笑😅 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Merton R C. Option pricing when underlying stock returns are discontinuous[J]. Journal of financial economics, 1976, 3(1-2): 125-144. <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>Ito-Levy 公式<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>但 Merton 的原始论文中并没有这么做<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>他直接近似处理了泊松跳跃的效应<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>有效理论是一个非常大的主题<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>背后蕴含着深刻的物理和哲学思想<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>这种思想帮助人类认识并理解任何层次化的复杂系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>举例而言<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>电动力学是量子电动力学的低能有效场论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>几何光学是电动力学的低能有效场论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>更进一步<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>计算机图形学又是几何光学的大尺度有效理论<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在图形学中<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我们通过微表面假设<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>把光与环境的相互作用平均到 BRDF 上<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>然后用 <code>roughness map</code> 和 <code>normal map</code> 等被重整的参数描述整个系统<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>在这个例子里<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>BRDF 就是有效模型<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>各种贴图是有效参数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>光通量类似哈密顿量或是配分函数<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span>这个主题很有意思<span class="bd-box"><h-char class="bd bd-beg"><h-inner>，</h-inner></h-char></span>我打算专门写写<span class="bd-box"><h-char class="bd bd-beg"><h-inner>。</h-inner></h-char></span> <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+
+      
+    </div>
+    <footer class="article-footer">
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Q-Quant/" rel="tag">Q-Quant</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E9%87%91%E8%9E%8D/" rel="tag">金融</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2025/02/09/%E5%B8%82%E5%9C%BA%E7%9A%84%E7%BB%88%E7%82%B9/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">
+        
+          市场的终点
+        
+      </div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 居然熊猫<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a><br>
+      
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="/js/clipboard.min.js"></script>
+<script src="/js/jquery-1.4.3.min.js"></script>
+
+<script src="/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+
+<script>
+  MathJax = {
+    options: {
+      enableMenu: false
+    },
+    tex: {
+      inlineMath: [['$', '$'], ['\\(', '\\)']],
+      displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    }
+  };
+</script>
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+    CommonHTML: {
+      linebreaks: false
+    }
+  });
+  </script> -->
+<script type="text/javascript" id="MathJax-script" async
+  src="/mathjax/tex-chtml.js">
+</script>
+<!-- <script type="text/javascript"
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS_CHTML">
+</script> -->
+
+  </div>
+</body>
+</html>
